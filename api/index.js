@@ -24,7 +24,7 @@ state = 0;
 bot.onText(/\/menu/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
-        `masukkan nilai i|v contohnya 3|3`
+        `masukkan nilai i|v contohnya 9|9`
     );
     state = 1;
 });
@@ -46,10 +46,10 @@ bot.on('message', (msg) => {
         `nilai v yang diprediksi adalah ${jres[0]} volt`
     );
          bot.sendMessage(
-        msg.chat.id,
-        `nilai p yang diprediksi adalah ${jres[1]} watt`
-    );   
-    })
+             msg.chat.id,
+             `nilai p yang diprediksi adalah ${jres[1]} watt`
+         );
+     })
 }else{
        state = 0
        }
