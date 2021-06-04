@@ -16,11 +16,9 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /predict`
+        `click /predict`
     );   
 });
-
-
 
 state = 0
 bot.onText(/\/menu/, (msg) => {
