@@ -11,7 +11,8 @@ const bot = new TelegramBot(token, {polling: true});
 
 
 // bots
-bot.onText(/\/start/, (msg) => { 
+bot.onText(/\/start/, (msg) => {
+    console.log(msg)
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
@@ -19,8 +20,10 @@ bot.onText(/\/start/, (msg) => {
     );   
 });
 
+
+// input requires i and r
 state = 0;
-bot.onText(/\/menu/, (msg) => {
+bot.onText(/\/predict/, (msg) => {
     bot.sendMessage(
         msg.chat.id,
         `masukkan nilai i|v contohnya 9|9`
@@ -30,7 +33,6 @@ bot.onText(/\/menu/, (msg) => {
 
 bot.on('message', (msg) => {
        if(state == 1){
-          console.log(msg.text);
     s = msg.text.split("|");
     i = s[0]
     v = s[1]
@@ -55,14 +57,15 @@ bot.on('message', (msg) => {
 })
 
 //routers
-r.get{'predict/:i/:r', function(req, res, next) {
+r.get{'/prediction/:i/:r', function(req, res, next) {
     model.predict(
         [
-            parseFloat(req.param.i), // string to float
-            parseFloat(req.param.r)
+            parseFloat(req.params.i), // string to float
+            parseFloat(req.params.r)
             ]
         ).then(jres)=>{
         res.json(jres);
     })
 });
+      
       module.export = r;
