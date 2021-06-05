@@ -54,3 +54,16 @@ bot.on('message', (msg) => {
        state = 0
        }
 })
+
+//routers
+r.get{'predict/:i/:r', function(req, res, next) {
+    model.predict(
+        [
+            parseFloat(req.param.i), // string to float
+            parseFloat(req.param.r)
+            ]
+        ).then(jres)=>{
+        res.json(jres);
+    })
+});
+      module.export - r;
