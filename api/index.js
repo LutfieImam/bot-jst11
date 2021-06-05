@@ -65,4 +65,4 @@ r.get{'predict/:i/:r', function(req, res, next) {
         res.json(jres);
     })
 });
-      module.export - r;
+      module.export = r;
