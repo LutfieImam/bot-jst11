@@ -6,7 +6,7 @@ const model = require('./sdk/model.js');
 
 // Bot Setting
 const TelegramBot = require('node-telegram-bot-api');
-const token = '1734344757:AAHSxwYD69MjO5dop28Rq2Ruo8swXjOgQVU'
+const token = '1734344757:AAHiQL1za6E92KhJ3z4HC3SmaoTcho6If14'
 const bot = new TelegramBot(token, {polling: true});
 
 
@@ -32,8 +32,7 @@ bot.onText(/\/predict/, (msg) => {
 });
 
 bot.on('message', (msg) => {
-    if(state == 1){
-        console.log(msg.text);
+    if(state == 1){       
     s = msg.text.split("|");
     i = s[0]
     v = s[1]
@@ -54,22 +53,8 @@ bot.on('message', (msg) => {
      })
 }else{
        state = 0
+     bot.sendMessage(
+        msg.chat.id,
+        `kembali /start`
        }
 })
-
-
-
- 
-//routers
-r.get{'/prediction/:i/:r', function(req, res, next) {
-    model.predict(
-        [
-            parseFloat(req.params.i), // string to float
-            parseFloat(req.params.r)
-            ]
-        ).then(jres)=>{
-        res.json(jres);
-    })
-});
-      
-      module.export = r;
