@@ -12,7 +12,6 @@ const bot = new TelegramBot(token, {polling: true});
 
 // bots
 bot.onText(/\/start/, (msg) => { 
-    console.log(msg)
     bot.sendMessage(
         msg.chat.id,
         `hello ${msg.chat.first_name}, welcome...\n
